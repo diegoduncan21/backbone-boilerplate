@@ -1,0 +1,34 @@
+<h1 class="page-header">Eventos</h1>
+<div class="table-responsive">
+  	<table class="table table-striped">
+
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Autor</th>
+				<th>Nombre</th>
+				<th>Descripcion</th>
+				<th>Imagen</th>
+				<th>Creado</th>
+				<th>Modificado</th>
+				<th>Comienza</th>
+				<th>Termina</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each events}}
+				<tr class="register" data="{{ id }}">
+					<td>{{ id }}</td>
+					<td>{{ owner }}</td>
+					<td>{{ name }}</td>
+					<td>{{ description }}</td>
+					<td>{{ urlImage }}</td>
+					<td>{{ created_at }}</td>
+					<td>{{ updated_at }}</td>
+					<td>{{ start_at }}</td>
+					<td>{{ end_at }}</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>

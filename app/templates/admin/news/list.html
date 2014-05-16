@@ -1,0 +1,29 @@
+<h1 class="page-header">Noticias</h1>
+<div class="table-responsive">
+  	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Autor</th>
+				<th>Titulo</th>
+				<th>Contenido</th>
+				<th>Imagen</th>
+				<th>Creado</th>
+				<th>Modificado</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each news}}
+				<tr class="register" data="{{ id }}">
+					<td>{{ id }}</td>
+					<td>{{ owner }}</td>
+					<td>{{ title }}</td>
+					<td>{{ content }}</td>
+					<td>{{ urlImage }}</td>
+					<td>{{ created_at }}</td>
+					<td>{{ updated_at }}</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>

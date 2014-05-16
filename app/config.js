@@ -6,6 +6,12 @@ require.config({
     "almond": "../vendor/bower/almond/almond",
     "underscore": "../vendor/bower/lodash/dist/lodash.underscore",
     "jquery": "../vendor/bower/jquery/dist/jquery",
-    "backbone": "../vendor/bower/backbone/backbone"
+    "backbone": "../vendor/bower/backbone/backbone",
+    "handlebars": "../vendor/bower/handlebars/handlebars",
+  },
+  shim: {
+    'handlebars': {
+        exports: 'Handlebars'
+    }
   }
 });
