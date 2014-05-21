@@ -4,31 +4,35 @@ define([
   'backbone',
   'handlebars',
   'modules/views/admin/events/list',
+  'modules/views/admin/events/edit',
+  'modules/views/admin/events/add',
   'modules/views/admin/news/list',
+  'modules/views/admin/news/edit',
+  'modules/views/admin/news/add',
 ], function($, 
             _, 
             Backbone, 
             Handlebars,  
             EventsListView,
-            NewsListView) {
-  function viewFactory(model){
-    
-      var view;
-      switch (model) {
-        case "events":
-          view = new EventsListView();
-          break;
-        case "news":
-          view = new NewsListView();
-          break;
-        // case "messages":
-        //   var modelCollection = new ModelCollection();
-        //   break;
-        default:
-          console.log("no se encontro la vista");
-          break;
+            EventsEditView,
+            EventsAddView,
+            NewsListView,
+            NewsEditView,
+            NewsAddView) {
+  function viewFactory(options){
+      var viewsDict = {
+        events: {
+          list: EventsListView,
+          edit: EventsEditView,
+          add: EventsAddView
+        },
+        news : {
+          list: NewsListView,
+          edit: NewsEditView,
+          add: NewsAddView
+        }
       }
-      return view;
+      return viewsDict[options.model][options.action];
   }
 
   return viewFactory;

@@ -3,6 +3,8 @@
 require(["config"], function() {
   // Kick off the application.
   require(["app", "router"], function(app, Router) {
+    location.hash = 'admin';
+    
     // Define your master router on the application namespace and trigger all
     // navigation from this instance.
     app.router = new Router();

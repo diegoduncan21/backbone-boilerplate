@@ -1,11 +1,14 @@
-<h1 class="page-header">Noticias</h1>
+<h1 class="page-header">
+	Noticias
+	<span class="pull-right"><a href="#admin/news/add" class="btn btn-primary">Agregar</a></span>
+</h1>
 <div class="table-responsive">
   	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Autor</th>
 				<th>Titulo</th>
+				<th>Autor</th>
 				<th>Contenido</th>
 				<th>Imagen</th>
 				<th>Creado</th>
@@ -14,12 +17,12 @@
 		</thead>
 		<tbody>
 			{{#each news}}
-				<tr class="register" data="{{ id }}">
-					<td>{{ id }}</td>
-					<td>{{ owner }}</td>
+				<tr class="register">
+					<td><a href="#admin/{{ namespace }}/{{ id }}/edit">{{ id }}</a></td>
 					<td>{{ title }}</td>
+					<td>{{ owner }}</td>
 					<td>{{ content }}</td>
-					<td>{{ urlImage }}</td>
+					<td><img src="{{ urlImage }}"></td>
 					<td>{{ created_at }}</td>
 					<td>{{ updated_at }}</td>
 				</tr>

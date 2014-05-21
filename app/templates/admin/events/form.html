@@ -1,0 +1,77 @@
+{{#if event }}
+  <h1>Evento #{{ event.id }}</h1>
+{{else}}
+  <h1>Agregar Evento</h1>
+{{/if}}
+<form class="form-horizontal" role="form">
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">ID</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="ID" value="{{ event.id }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Nombre</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="Nombre" value="{{ event.name }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Creador</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="Creador" value="{{ event.owner }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Descripcion</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" placeholder="Descripcion" value="{{ event.description }}"></textarea>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Imagen</label>
+    <div class="col-sm-10">
+      <a href="{{ event.urlImage }}">{{ event.urlImage }}</a>
+      <input type="file" class="form-control" placeholder="Imagen" value="{{ event.urlImage }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Fecha de creacion</label>
+    <div class="col-sm-10">
+      <input type="datetime" class="form-control" placeholder="Fecha de creacion" value="{{ event.created_at }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Fecha de modificacion</label>
+    <div class="col-sm-10">
+      <input type="datetime" class="form-control" placeholder="Fecha de Modificacion" value="{{ event.updated_at }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Comienzo</label>
+    <div class="col-sm-10">
+      <input type="datetime" class="form-control" placeholder="Comienzo" value="{{ event.start_at }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Finalizacion</label>
+    <div class="col-sm-10">
+      <input type="datetime" class="form-control" placeholder="Finalizacion" value="{{ event.end_at }}">
+    </div>
+  </div>
+  
+  <input type="submit" value="{{#if event }}Modificar{{else}}Agregar{{/if}}" class="btn btn-default add">
+  {{#if event }}
+    <input type="submit" value="Eliminar" class="btn btn-danger del">
+  {{/if}}
+  
+</form>

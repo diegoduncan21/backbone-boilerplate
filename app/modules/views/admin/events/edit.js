@@ -3,23 +3,45 @@ define([
   'underscore',
   'backbone',
   'handlebars',
-  'text!/app/templates/admin/events/edit.html',
+  'text!/app/templates/admin/events/form.html',
   'modules/collections/Event'
-], function($, _, Backbone, Handlebars, eventEditTemplate, EventsCollection){
+], function($, _, Backbone, Handlebars, eventFormTemplate, EventsCollection){
 
   var EventDetalView = Backbone.View.extend({
     el: ".main",
-    template: Handlebars.compile(eventEditTemplate),
-
-    initialize: function(options){
-      console.log(options.event_id);
-      this.render(options.event_id);
+    template: Handlebars.compile(eventFormTemplate),
+    
+    events: {
+      "click .add": "editEvent",
+      "click .del": "delEvent"   
     },
-    render: function(event_id){
+    
+    initialize: function(options) {
+      this.render(options.id);
+    },
+    render: function(event_id) {
       var eventsCollection = new EventsCollection();
-      var eventSelected = eventsCollection.get(event_id);
+      var eventSelected = eventsCollection.findWhere({id: Number(event_id)});
+      this.model = eventSelected;
       this.$el.html(this.template({event: eventSelected.toJSON()}));
       return this;
+    },
+    editEvent: function(event) {
+       event.preventDefault();
+      
+      alert("me editaron");
+      return false;
+    },
+    delEvent: function(event) {
+      event.preventDefault();
+      
+      that = this;
+      this.model.destroy({
+        success: function() {
+          console.log(that.parent.collection);
+          Backbone.history.navigate('#admin/events', true);
+        }
+      });
     }
 
   });

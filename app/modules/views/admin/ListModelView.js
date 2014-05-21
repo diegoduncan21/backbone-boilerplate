@@ -10,9 +10,6 @@ define(function(require, exports, module) {
 
   module.exports = Backbone.View.extend({
     el: ".nav-sidebar",
-    events: {
-      "click .tabs" : "ModelSelect"
-    },
     template: Handlebars.compile(listModelTemplate),
     render: function(){
 
@@ -20,12 +17,6 @@ define(function(require, exports, module) {
       this.$el.html(this.template({models: modelCollection.toJSON()}));
       return this;
 
-    },
-    ModelSelect : function(event){
-      event.stopImmediatePropagation();
-      var model = $(event.currentTarget).attr("data").toLowerCase();
-      var view = viewFactory(model);
-      view.render();
     }
 
   });

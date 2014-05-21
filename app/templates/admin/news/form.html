@@ -1,0 +1,63 @@
+{{#if new }}
+  <h1>Noticia #{{ new.id }}</h1>
+{{else}}
+  <h1>Agregar Noticia</h1>
+{{/if}}
+
+<form class="form-horizontal" role="form">
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">ID</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="ID" value="{{ new.id }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Titulo</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="Nombre" value="{{ new.title }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Creador</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="Creador" value="{{ new.owner }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Contenido</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" placeholder="Descripcion" value="{{ new.content }}"></textarea>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Imagen</label>
+    <div class="col-sm-10">
+      <a href="{{ event.urlImage }}">{{ new.urlImage }}</a>
+      <input type="file" class="form-control" placeholder="Imagen" value="{{ new.urlImage }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Fecha de creacion</label>
+    <div class="col-sm-10">
+      <input type="datetime" class="form-control" placeholder="Fecha de creacion" value="{{ new.created_at }}">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Fecha de modificacion</label>
+    <div class="col-sm-10">
+      <input type="datetime" class="form-control" placeholder="Fecha de Modificacion" value="{{ new.updated_at }}">
+    </div>
+  </div>
+  
+  <input type="submit" value="{{#if new }}Modificar{{else}}Agregar{{/if}}" class="btn btn-default add">
+  {{#if new }}
+    <input type="submit" value="Eliminar" class="btn btn-danger del">
+  {{/if}}
+</form>

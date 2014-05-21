@@ -1,12 +1,15 @@
-<h1 class="page-header">Eventos</h1>
+<h1 class="page-header">
+	Eventos
+	<span class="pull-right"><a href="#admin/events/add" class="btn btn-primary">Agregar</a></span>
+</h1>
 <div class="table-responsive">
   	<table class="table table-striped">
 
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Autor</th>
 				<th>Nombre</th>
+				<th>Autor</th>
 				<th>Descripcion</th>
 				<th>Imagen</th>
 				<th>Creado</th>
@@ -17,12 +20,12 @@
 		</thead>
 		<tbody>
 			{{#each events}}
-				<tr class="register" data="{{ id }}">
-					<td>{{ id }}</td>
-					<td>{{ owner }}</td>
+				<tr class="register">
+					<td><a href="#admin/{{ namespace }}/{{ id }}/edit">{{ id }}</a></td>
 					<td>{{ name }}</td>
+					<td>{{ owner }}</td>
 					<td>{{ description }}</td>
-					<td>{{ urlImage }}</td>
+					<td><img height="50%" src="{{ urlImage }}"></td>
 					<td>{{ created_at }}</td>
 					<td>{{ updated_at }}</td>
 					<td>{{ start_at }}</td>

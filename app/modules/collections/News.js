@@ -9,9 +9,9 @@ define([
     
     initialize: function(){
       this.add([
-        new NewsModel({id: 4, owner: "dueño de la noticia 1"}), 
-        new NewsModel({id: 5, owner: "dueño de la noticia 2"}), 
-        new NewsModel({id: 6})
+        new NewsModel({id: 1, owner: "dueño de la noticia 1", urlImage: "http://isitpyconyet.com/pycon2014.png"}), 
+        new NewsModel({id: 2, owner: "dueño de la noticia 2", urlImage: "http://isitpyconyet.com/pycon2014.png"}), 
+        new NewsModel({id: 3, owner: "dueño de la noticia 3", urlImage: "http://isitpyconyet.com/pycon2014.png"})
       ]);
     }
   });
